@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Block Chain Index - add to your metamask!</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/web3.min.js"></script>
+<style type="text/css">
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+
+.card{
+
+      transition:.3s;
+border-radius: 27px;
+
+  }
+
+  .card .read-more:hover{
+    font-size: 14px;
+}
+
+.card:hover{
+    box-shadow: 8px 8px 8px grey;
+    transform:scale(1.1);
+}
+
+
+  .l-bg-blue-dark {
+    background: linear-gradient(to right, rgb(233, 213, 255), rgb(107, 33, 168));
+    color: #fff;
+  }
+
+
+      button{
+     
+      outline: none;
+      border:0px;
+      border-radius: 40px;
+   
+      margin:10px;
+      cursor: pointer;
+      color: #fff;
+      background-size: 280% 180%;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+      transition:all .4s ease-in-out;
+      border: 0px !important;
+      }
+      button:hover{
+      background-position: 90% 0;
+      transition: all .2s ease-in-out;
+      }
+
+
+</style>
+
+  </head>
+  <body class=" text-dark l-bg-blue-dark">
+
+
+<!--********************Nav Bar******************************-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <!-- <a class="navbar-brand" href="#">Navbar</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link"  target="_blank" href="https://algonetwork.github.io/TokenFactory/">Token Factory </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="https://algonetwork.github.io/Bee-Sender/">Multi Sender</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="https://algonetwork.github.io/EVM-Blockchain-Index/">EVM Blockchain index</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="https://algonetwork.github.io/Cross-Chain-Bridge-Trading-Transfer-between-Ethereum-Binance-Polygon/">EVM Bridge</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Crypto Tool
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" target="_blank" href="https://algonetwork.github.io/Binance-PancakeSwap-Token-History-Price-Chart/">PancakeSwap Token History Price Chart</a>
+          <a class="dropdown-item" target="_blank" href="https://dapp404.com/AlgoNetwork/Woocommerce-Ethereum-Evm-Compatible-ERC20-BEP20-Token-Payment-Gateway">Woocommerce Token Payment Gateway(All EVM compatible)</a>
+          <a class="dropdown-item" target="_blank" href="https://algonetwork.github.io/CreateYourOwnSafeMoon/">Create Your Own SafeMoon</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--********************Nav Bar******************************-->
+
+
+
+    <h1 class="m-5  ">EVM BlockChain Index- add Network to your metamask!</h1>
+<div id = "Tips"></div>
+<center>
+<div class="m-5 w-25 ">
+
+<input   type="text" id="myInput" onkeyup="ShowSingle()" placeholder="Search for names..">
+
+</div>
+</center>
+
+
+
+
+<div id="CardShow"  class="row  m-2 d-flex justify-content-around">  </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+ <script src="evm.js"></script>
+
+<script >
+
+
+var _0x2d39f0=_0x4982;(function(_0xbc24d3,_0x3d0d9d){var _0x31c7ae=_0x4982,_0x3b8348=_0xbc24d3();while(!![]){try{var _0x26f23f=parseInt(_0x31c7ae(0x1a2))/0x1+-parseInt(_0x31c7ae(0x193))/0x2*(-parseInt(_0x31c7ae(0x1b3))/0x3)+-parseInt(_0x31c7ae(0x18d))/0x4+parseInt(_0x31c7ae(0x1a3))/0x5*(-parseInt(_0x31c7ae(0x1c3))/0x6)+-parseInt(_0x31c7ae(0x1a9))/0x7+parseInt(_0x31c7ae(0x1ba))/0x8*(parseInt(_0x31c7ae(0x1c2))/0x9)+-parseInt(_0x31c7ae(0x1be))/0xa*(-parseInt(_0x31c7ae(0x18c))/0xb);if(_0x26f23f===_0x3d0d9d)break;else _0x3b8348['push'](_0x3b8348['shift']());}catch(_0x2d05c8){_0x3b8348['push'](_0x3b8348['shift']());}}}(_0x1ebd,0xd8dcf));var myContract;function _0x1ebd(){var _0x36005a=['MetaMask\x20ok','Add\x20Finished','1201200tUrhsB','35ektkbr','<center>','currentProvider','request','decimals','</h5>','8753906BRLauB','infoURL','myInput','<div\x20class=\x22card\x20m-3\x20\x20\x20shadow\x20\x22\x20style=\x22width:\x2018rem;\x22>','log','</div>','wallet_addEthereumChain','message','value','#CardShow','166371eYyHhu','code','</center>','error.code','nativeCurrency','<button\x20class=\x22btn\x20btn-primary\x20ml-auto\x22\x20onclick=\x22AddNetwork(\x20','web3','56928NydJRX','\x20)\x22>add</button>','#Tips','chainId','10zpUaEk','each','includes','CurrencyName','423uPmZqT','72624wQxJYL','ethereum','append','wallet_switchEthereumChain','12957857GtEdTD','6175060oHAOHV','User\x20reject\x20switch\x20network.','catch','html','rpc','toUpperCase','38qeZZHr','toString','<h5\x20class=\x22card-title\x22>','ready','add\x20error\x20:','Non-Ethereum\x20browser\x20detected.\x20You\x20should\x20consider\x20trying\x20MetaMask!','filter,','enable','ags[i][\x22name\x22],','getElementById','name','CurrencyDecimals','<div\x20class=\x22card-body\x20\x22>'];_0x1ebd=function(){return _0x36005a;};return _0x1ebd();}async function CheckMetamaskConnection(){var _0x2f6dbd=_0x4982;if(window[_0x2f6dbd(0x1c4)]){window['web3']=new Web3(window[_0x2f6dbd(0x1c4)]);try{return await ethereum[_0x2f6dbd(0x19a)](),!![];}catch(_0x21699a){return![];}}else return window['web3']?(window[_0x2f6dbd(0x1b9)]=new Web3(web3[_0x2f6dbd(0x1a5)]),!![]):(console[_0x2f6dbd(0x1ad)](_0x2f6dbd(0x198)),![]);}$(document)[_0x2d39f0(0x196)](async function(){var _0x16dbf3=_0x2d39f0,_0xb9dfc9=await CheckMetamaskConnection();_0xb9dfc9&&console['log'](_0x16dbf3(0x1a0),_0xb9dfc9);}),ShowTable();async function ShowSingle(){var _0x3f3a59=_0x2d39f0;$('#CardShow')[_0x3f3a59(0x190)](''),templateString='';var _0x426a04=document[_0x3f3a59(0x19c)](_0x3f3a59(0x1ab));filter=_0x426a04[_0x3f3a59(0x1b1)]['toUpperCase'](),ags=EVMJson,console[_0x3f3a59(0x1ad)]('ags,',ags),console[_0x3f3a59(0x1ad)](_0x3f3a59(0x199),filter),$[_0x3f3a59(0x1bf)](ags,function(_0x4bcd46){var _0x3e9df3=_0x3f3a59;ags[_0x4bcd46][_0x3e9df3(0x19d)][_0x3e9df3(0x192)]()[_0x3e9df3(0x1c0)](filter)&&(console[_0x3e9df3(0x1ad)](_0x3e9df3(0x19b),ags[_0x4bcd46][_0x3e9df3(0x19d)]),templateString+=_0x3e9df3(0x1ac),templateString+=_0x3e9df3(0x19f),templateString+=_0x3e9df3(0x1a4),templateString+=_0x3e9df3(0x195),templateString+=ags[_0x4bcd46][_0x3e9df3(0x19d)],templateString+=_0x3e9df3(0x1a8),templateString+=_0x3e9df3(0x195),templateString+=ags[_0x4bcd46][_0x3e9df3(0x1bd)],templateString+='</h5>',templateString+=_0x3e9df3(0x195),templateString+=ags[_0x4bcd46][_0x3e9df3(0x1aa)],templateString+=_0x3e9df3(0x1a8),templateString+=_0x3e9df3(0x1b8)+_0x4bcd46+_0x3e9df3(0x1bb),templateString+=_0x3e9df3(0x1b5),templateString+=_0x3e9df3(0x1ae),templateString+=_0x3e9df3(0x1ae));}),$(_0x3f3a59(0x1b2))['append'](templateString);}async function ShowTable(){var _0x3e3b28=_0x2d39f0;templateString='',ags=EVMJson,console[_0x3e3b28(0x1ad)]('ags,',ags),$[_0x3e3b28(0x1bf)](ags,function(_0x927d7e){var _0x44d8dc=_0x3e3b28;templateString+=_0x44d8dc(0x1ac),templateString+=_0x44d8dc(0x19f),templateString+=_0x44d8dc(0x1a4),templateString+=_0x44d8dc(0x195),templateString+=ags[_0x927d7e][_0x44d8dc(0x19d)],templateString+=_0x44d8dc(0x1a8),templateString+='<h5\x20class=\x22card-title\x22>',templateString+=ags[_0x927d7e]['chainId'],templateString+='</h5>',templateString+=_0x44d8dc(0x195),templateString+=ags[_0x927d7e]['infoURL'],templateString+=_0x44d8dc(0x1a8),templateString+=_0x44d8dc(0x1b8)+_0x927d7e+_0x44d8dc(0x1bb),templateString+=_0x44d8dc(0x1b5),templateString+=_0x44d8dc(0x1ae),templateString+=_0x44d8dc(0x1ae);}),$(_0x3e3b28(0x1b2))[_0x3e3b28(0x1c5)](templateString);}function decimalToHexString(_0x51d41b){var _0xa7deb0=_0x2d39f0;return _0x51d41b<0x0&&(_0x51d41b=0xffffffff+_0x51d41b+0x1),_0x51d41b[_0xa7deb0(0x194)](0x10)[_0xa7deb0(0x192)]();}function _0x4982(_0x20bae5,_0x3c0427){var _0x1ebd8e=_0x1ebd();return _0x4982=function(_0x49825f,_0x4e31c2){_0x49825f=_0x49825f-0x18c;var _0x465c5a=_0x1ebd8e[_0x49825f];return _0x465c5a;},_0x4982(_0x20bae5,_0x3c0427);}async function AddNetwork(_0x165efc){var _0x1223f7=_0x2d39f0;$('#Tips')[_0x1223f7(0x190)](''),console[_0x1223f7(0x1ad)](_0x1223f7(0x1bd),EVMJson[_0x165efc][_0x1223f7(0x1bd)]),console[_0x1223f7(0x1ad)](_0x1223f7(0x19d),EVMJson[_0x165efc][_0x1223f7(0x19d)]),console[_0x1223f7(0x1ad)](_0x1223f7(0x1c1),EVMJson[_0x165efc][_0x1223f7(0x1b7)][_0x1223f7(0x19d)]),console[_0x1223f7(0x1ad)]('CurrencySymbol',EVMJson[_0x165efc][_0x1223f7(0x1b7)]['symbol']),console[_0x1223f7(0x1ad)](_0x1223f7(0x19e),EVMJson[_0x165efc][_0x1223f7(0x1b7)][_0x1223f7(0x1a7)]),console[_0x1223f7(0x1ad)](_0x1223f7(0x191),EVMJson[_0x165efc][_0x1223f7(0x191)]),console[_0x1223f7(0x1ad)]('infoURL',EVMJson[_0x165efc][_0x1223f7(0x1aa)]);try{await window[_0x1223f7(0x1c4)][_0x1223f7(0x1a6)]({'method':_0x1223f7(0x1c6),'params':[{'chainId':'0x'+decimalToHexString(parseInt(EVMJson[_0x165efc][_0x1223f7(0x1bd)]))}]});}catch(_0x159742){console[_0x1223f7(0x1ad)](_0x1223f7(0x1b6),_0x159742[_0x1223f7(0x1b4)]);if(_0x159742[_0x1223f7(0x1b4)]==0x1326)try{return console['log']('not\x20found\x20network,now\x20add\x20it\x20.',_0x159742[_0x1223f7(0x1b4)]),await window[_0x1223f7(0x1c4)][_0x1223f7(0x1a6)]({'method':_0x1223f7(0x1af),'params':[{'chainId':'0x'+decimalToHexString(parseInt(EVMJson[_0x165efc][_0x1223f7(0x1bd)])),'chainName':EVMJson[_0x165efc]['name'],'nativeCurrency':{'name':EVMJson[_0x165efc][_0x1223f7(0x1b7)]['name'],'symbol':EVMJson[_0x165efc]['nativeCurrency']['symbol'],'decimals':EVMJson[_0x165efc][_0x1223f7(0x1b7)]['decimals']},'rpcUrls':[EVMJson[_0x165efc][_0x1223f7(0x191)][0x0]],'blockExplorerUrls':[EVMJson[_0x165efc][_0x1223f7(0x1aa)]]}]})[_0x1223f7(0x18f)](_0x5f26e6=>{var _0x31e753=_0x1223f7;console[_0x31e753(0x1ad)](_0x31e753(0x197),_0x5f26e6),$('#Tips')[_0x31e753(0x190)]('');}),$(_0x1223f7(0x1bc))[_0x1223f7(0x190)](_0x1223f7(0x1a1)),![];}catch(_0x236fee){if(_0x236fee['code']==0xfa1)return console[_0x1223f7(0x1ad)]('User\x20reject\x20.',_0x236fee[_0x1223f7(0x1b0)]),$(_0x1223f7(0x1bc))[_0x1223f7(0x190)](''),![];}else{if(_0x159742[_0x1223f7(0x1b4)]==0xfa1)return console[_0x1223f7(0x1ad)](_0x1223f7(0x18e),_0x159742['message']),$(_0x1223f7(0x1bc))[_0x1223f7(0x190)](''),![];}}}
+
+</script>
+
+
+
+  </body>
+</html>
+
+
+
+
+
